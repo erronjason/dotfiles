@@ -29,7 +29,6 @@ set clipboard^=unnamed clipboard^=unnamedplus
 
 let g:pymode_rope_complete_on_dot = 0
 
-
 set hlsearch
 set showmatch
 set ignorecase
@@ -60,15 +59,15 @@ set list
 set backspace=indent,eol,start
 
 " Use the same symbols as textmate for tabs and eols
-set listchars=tab:▸\ ,eol:¬
+set listchars=tab:▸\ ,eol:¬,trail:·
 
 " Allow wrap
 set wrap
 
-" highlight col 80
-set colorcolumn=80
-highlight ColorColumn guibg=gray16
-highlight ColorColumn ctermbg=Black
+" ColorColumn as a block
+execute "set colorcolumn=" . join(map(range(2,600), '"+" . v:val'), ',')
+highlight ColorColumn guibg=236
+highlight ColorColumn ctermbg=236
 
 " highlight search results
 set hlsearch
