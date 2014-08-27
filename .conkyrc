@@ -46,7 +46,7 @@ TEXT
 #-----Weather-----#
 \
 \
-${execi 300 curl -s "http://weather.yahooapis.com/forecastrss?w=44418&u=f" -o ~/.cache/weather.xml}\
+${execi 300 curl -s "http://weather.yahooapis.com/forecastrss?w=2503863&u=f" -o ~/.cache/weather.xml}\
 \
 \
 #---Clock and Date---#
