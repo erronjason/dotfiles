@@ -3,7 +3,10 @@
 # for examples
 
 # If not running interactively, don't do anything
-[ -z "$PS1" ] && return
+case $- in
+    *i*) ;;
+      *) return;;
+esac
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
@@ -25,10 +28,10 @@ shopt -s checkwinsize
 #shopt -s globstar
 
 # make less more friendly for non-text input files, see lesspipe(1)
-[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+#[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 # set variable identifying the chroot you work in (used in the prompt below)
-if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
+if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
 
@@ -76,19 +79,15 @@ if [ -x /usr/bin/dircolors ]; then
     #alias dir='dir --color=auto'
     #alias vdir='vdir --color=auto'
 
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
+    #alias grep='grep --color=auto'
+    #alias fgrep='fgrep --color=auto'
+    #alias egrep='egrep --color=auto'
 fi
 
 # some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
-
-# Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+#alias ll='ls -l'
+#alias la='ls -A'
+#alias l='ls -CF'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -102,46 +101,47 @@ fi
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
-if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
+if ! shopt -oq posix; then
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+  elif [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
+  fi
 fi
 
+# JasonTweaks
 
-export PYTHONDONTWRITEBYTECODE=1 # Don't write pyc/pyo
-
-
-export PROJECT_HOME=/home/jason/projects
-
-# Aliases
-alias nano='vim'
-
-# tmuxniator
-export EDITOR='vim'
-
-# Add to $PATH
-export PATH=$PATH:$HOME/bin/
-
+# virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/projects
 source /usr/local/bin/virtualenvwrapper.sh
 
-export PYTHONDONTWRITEBYTECODE=1
-[ -f ~/.pythonrc.py ] && export PYTHONSTARTUP=~/.pythonrc.py
-
-alias vim='gvim -v'
-
-export PS1="┌──\u@\h[\w]\n└╼ "
-
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-
-shopt -s histappend
-export HISTFILESIZE=500000
-export HISTSIZE=100000
-shopt -s cmdhist
+# tmux colors fix
+alias tmux="TERM=screen-256color-bce tmux"
 
 # dat lolcommits
 export LOLCOMMITS_DELAY=3
 export LOLCOMMITS_ANIMATE=3
 export LOLCOMMITS_DEVICE=/dev/video1
 
-alias bfg="java -jar /home/jason/bin/bfg.jar"
+# MASSIVE HISTORY, BECAUSE IT'S THE 2000'S BABY!
+shopt -s histappend
+export HISTFILESIZE=500000
+export HISTSIZE=100000
+shopt -s cmdhist
+export HISTTIMEFORMAT="%F %T "
+
+#justvimthings
+# Vim with clipboard support
+alias vim='gvim -v'
+export EDITOR='vim'
+
+# Add to $PATH
+export PATH=$PATH:$HOME/bin/
+
+# Python Settings
+export PYTHONDONTWRITEBYTECODE=1
+[ -f ~/.pythonrc.py ] && export PYTHONSTARTUP=~/.pythonrc.py
+
+# Bash prompt
+export PS1="┌──\u@\h[\w]\n└╼ "
