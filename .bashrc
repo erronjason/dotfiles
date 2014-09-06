@@ -131,6 +131,9 @@ export HISTSIZE=100000
 shopt -s cmdhist
 export HISTTIMEFORMAT="%F %T "
 
+# Aliases
+fuck='sudo $(history -p \!\!)' 
+
 #justvimthings
 # Vim with clipboard support
 alias vim='gvim -v'
