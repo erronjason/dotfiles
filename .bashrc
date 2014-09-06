@@ -132,7 +132,7 @@ shopt -s cmdhist
 export HISTTIMEFORMAT="%F %T "
 
 # Aliases
-fuck='sudo $(history -p \!\!)' 
+damnit='sudo !!' 
 
 #justvimthings
 # Vim with clipboard support
