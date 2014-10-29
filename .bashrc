@@ -37,3 +37,24 @@ export PYTHONDONTWRITEBYTECODE=1
 
 # Bash prompt
 export PS1="┌──\u@\h[\w]\n└╼ "
+
+# Aliases
+alias fm="thunar &"
+alias sl="ls"
+alias dir="ls"
+alias cd..="cd .."
+alias l="ls -lah"
+alias ks="ls"
+
+# Keene/Kanzler git aliases
+alias gst="git status"
+alias gs="git status"
+alias gm="git checkout master"
+alias gcm="git checkout master"
+alias gd="git diff"
+alias gdi="git diff"
+alias gdc="git diff --cached"
+alias gaa="git add --all"
+alias gmm="git merge master"
+alias gfa="git fetch --all"
+alias gpom="git push origin master"
