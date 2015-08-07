@@ -1,17 +1,17 @@
 # JasonTweaks
 
 # virtualenvwrapper
-export WORKON_HOME=$HOME/.virtualenvs
-export PROJECT_HOME=$HOME/projects
-source /usr/local/bin/virtualenvwrapper.sh
+#export WORKON_HOME=$HOME/.virtualenvs
+#export PROJECT_HOME=$HOME/projects
+#source /usr/local/bin/virtualenvwrapper.sh
 
 # tmux colors fix
 alias tmux="TERM=screen-256color-bce tmux"
 
 # dat lolcommits
-export LOLCOMMITS_DELAY=3
-export LOLCOMMITS_ANIMATE=3
-export LOLCOMMITS_DEVICE=/dev/video1
+#export LOLCOMMITS_DELAY=3
+#export LOLCOMMITS_ANIMATE=3
+#export LOLCOMMITS_DEVICE=/dev/video1
 
 # MASSIVE HISTORY, BECAUSE IT'S THE 2000'S BABY!
 shopt -s histappend
@@ -25,7 +25,7 @@ damnit='sudo !!'
 
 #justvimthings
 # Vim with clipboard support
-alias vim='gvim -v'
+#alias vim='gvim -v' # Uncomment once gvim is installed
 export EDITOR='vim'
 
 # Add to $PATH
@@ -36,17 +36,16 @@ export PYTHONDONTWRITEBYTECODE=1
 [ -f ~/.pythonrc.py ] && export PYTHONSTARTUP=~/.pythonrc.py
 
 # Bash prompt
-export PS1="┌──\u@\h[\w]\n└╼ "
+source ~/.bash_prompt
 
 # Aliases
-alias fm="thunar &"
 alias sl="ls"
 alias dir="ls"
 alias cd..="cd .."
 alias l="ls -lah"
 alias ks="ls"
 
-# Keene/Kanzler git aliases
+# Git aliases
 alias gst="git status"
 alias gs="git status"
 alias gm="git checkout master"
@@ -58,3 +57,4 @@ alias gaa="git add --all"
 alias gmm="git merge master"
 alias gfa="git fetch --all"
 alias gpom="git push origin master"
+
