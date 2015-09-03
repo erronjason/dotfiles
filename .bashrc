@@ -14,11 +14,15 @@ alias tmux="TERM=screen-256color-bce tmux"
 #export LOLCOMMITS_DEVICE=/dev/video1
 
 # MASSIVE HISTORY, BECAUSE IT'S THE 2000'S BABY!
-shopt -s histappend
-export HISTFILESIZE=500000
-export HISTSIZE=100000
-shopt -s cmdhist
+# shopt -s histappend
+# export HISTFILESIZE=500000
+# export HISTSIZE=100000
+#shopt -s cmdhist
+# History with timestamps
 export HISTTIMEFORMAT="%F %T "
+# History forever
+HISTFILE="${HOME}/.history/$(date -u +%Y/%m/%d.%H.%M.%S)_${HOSTNAME_SHORT}_$$"
+
 
 # Aliases
 damnit='sudo !!' 
