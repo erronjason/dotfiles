@@ -1,0 +1,9 @@
+[user]
+	email = ejsayre@gmail.com
+	name = Jason Sayre
+[push]
+    default = simple
+[alias]
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+[diff]
+    tool = git-meld
