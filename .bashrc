@@ -1,64 +1,43 @@
-# JasonTweaks
+# Only if interactive
+[ -z "$PS1" ] && return
 
-# virtualenvwrapper
-#export WORKON_HOME=$HOME/.virtualenvs
-#export PROJECT_HOME=$HOME/projects
-#source /usr/local/bin/virtualenvwrapper.sh
+# Source platform specific
+platform_script=~/.bash_`uname | awk '{ print tolower($0) }'`
+[ -f $platform_script ] && . $platform_script
+unset platform_script
+
+. ~/.bash_prompt
 
 # tmux colors fix
 alias tmux="TERM=screen-256color-bce tmux"
-
-# dat lolcommits
-#export LOLCOMMITS_DELAY=3
-#export LOLCOMMITS_ANIMATE=3
-#export LOLCOMMITS_DEVICE=/dev/video1
-
-# MASSIVE HISTORY, BECAUSE IT'S THE 2000'S BABY!
-# shopt -s histappend
-# export HISTFILESIZE=500000
-# export HISTSIZE=100000
-#shopt -s cmdhist
-# History with timestamps
-export HISTTIMEFORMAT="%F %T "
-# History forever
-HISTFILE="${HOME}/.history/$(date -u +%Y/%m/%d.%H.%M.%S)_${HOSTNAME_SHORT}_$$"
-
-
-# Aliases
-damnit='sudo !!' 
-
-#justvimthings
-# Vim with clipboard support
-#alias vim='gvim -v' # Uncomment once gvim is installed
-export EDITOR='vim'
-
-# Add to $PATH
-export PATH=$PATH:$HOME/bin/
 
 # Python Settings
 export PYTHONDONTWRITEBYTECODE=1
 [ -f ~/.pythonrc.py ] && export PYTHONSTARTUP=~/.pythonrc.py
 
-# Bash prompt
-source ~/.bash_prompt
+# Virtualenvwrapper settings
+if which virtualenvwrapper.sh &> /dev/null; then
+    export WORKON_HOME=$HOME/.virtualenvs
+    export PROJECT_HOME=$HOME/projects
+    [ -d $WORKON_HOME ] && mkdir -p $WORKON_HOME
+    . /usr/local/bin/virtualenvwrapper.sh
+fi
 
-# Aliases
-alias sl="ls"
-alias dir="ls"
-alias cd..="cd .."
-alias l="ls -lah"
-alias ks="ls"
+# MASSIVE HISTORY, BECAUSE IT'S THE 2000'S BABY!
+shopt -s histappend
+export HISTFILESIZE=500000
+export HISTSIZE=100000
+shopt -s cmdhist
+export HISTTIMEFORMAT="%F %T "
 
-# Git aliases
-alias gst="git status"
-alias gs="git status"
-alias gm="git checkout master"
-alias gcm="git checkout master"
-alias gd="git diff"
-alias gdi="git diff"
-alias gdc="git diff --cached"
-alias gaa="git add --all"
-alias gmm="git merge master"
-alias gfa="git fetch --all"
-alias gpom="git push origin master"
+# vim 5ever
+export EDITOR='vim'
 
+# Vim mode bash
+set -o vi
+set editing-mode vi
+# Re-bind ^l to clear
+bind -m vi-insert “\C-l”:clear-screen
+
+# Add ~/bin to $PATH
+export PATH=$PATH:$HOME/bin/

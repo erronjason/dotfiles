@@ -1,6 +1,5 @@
 #!/bin/bash
-# This hook is run after every virtualenv is activated.
-# source postactivate hook
+# This hook is sourced after every virtualenv is activated.
 _HOOK_PATH=bin/postactivate
 _PROJECT_FILE=$VIRTUAL_ENV/$VIRTUALENVWRAPPER_PROJECT_FILENAME
 

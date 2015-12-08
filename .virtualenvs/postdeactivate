@@ -1,6 +1,5 @@
 #!/bin/bash
-# This hook is run after every virtualenv is deactivated.
-# source postdeactivate hook
+# This hook is sourced after every virtualenv is deactivated.
 _HOOK_PATH=bin/postdeactivate
 
 if [ -n "$_PROJECT_DIR" ]; then
