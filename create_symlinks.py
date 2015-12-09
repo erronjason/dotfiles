@@ -22,7 +22,6 @@ DOTFILES = {
     ".tmux.conf",
     ".vim",
     ".vimrc",
-    ".virtualenvs",
     ".virtualenvs/postactivate",
     ".virtualenvs/postdeactivate",
 }

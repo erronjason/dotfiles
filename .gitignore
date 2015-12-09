@@ -1,3 +1,6 @@
 .DS_Store
 # vim history
 .vim/.netrwhist
+.virtualenvs/*
+!.virtualenvs/postactivate
+!.virtualenvs/postdeactivate
