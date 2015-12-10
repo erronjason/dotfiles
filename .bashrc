@@ -7,6 +7,7 @@ platform_script=~/.bash_`uname | awk '{ print tolower($0) }'`
 unset platform_script
 
 . ~/.bash_prompt
+. ~/.bash_aliases
 
 # tmux colors fix
 alias tmux="TERM=screen-256color-bce tmux"
