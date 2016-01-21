@@ -24,7 +24,6 @@ damnit='sudo !!'
 # Git aliases
 alias gst="git status"
 alias gs="git status"
-alias gm="git checkout master"
 alias gcm="git checkout master"
 alias gd="git diff"
 alias gdi="git diff"
