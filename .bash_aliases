@@ -19,7 +19,8 @@ alias dir="ls"
 alias cd..="cd .."
 alias l="ls -lah"
 alias ks="ls"
-damnit='sudo !!'
+alias damnit='sudo !!'
+alias sag='sudo apt-get'
 
 # Git aliases
 alias gst="git status"
