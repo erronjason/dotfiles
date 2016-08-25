@@ -7,6 +7,7 @@
 import os
 import sys
 import shutil
+import ctypes
 
 
 """The dotfiles you wish to symlink."""
@@ -55,6 +56,20 @@ class DirectoryAlreadyExists(_AlreadyExistsBase):
     """Raised when a directory exists where a link is to be created."""
 
 
+def symlink(source, link_name):
+    """Wrap symlinking to accomodate non-*nix systems"""
+    os_symlink = getattr(os, "symlink", None)
+    if callable(os_symlink):
+        os_symlink(source, link_name)
+    else:
+        csl = ctypes.windll.kernel32.CreateSymbolicLinkW
+        csl.argtypes = (ctypes.c_wchar_p, ctypes.c_wchar_p, ctypes.c_uint32)
+        csl.restype = ctypes.c_ubyte
+        flags = 1 if os.path.isdir(source) else 0
+        if csl(link_name, source, flags) == 0:
+            raise ctypes.WinError()
+
+
 def split_dotfile(dotfile):
     """Split dotfile path into (dirname, filename)."""
     return os.path.dirname(dotfile), os.path.basename(dotfile)
@@ -80,7 +95,7 @@ def create_symlink(dirname, filename):
     elif os.path.exists(link_path):
         raise FileAlreadyExists(link_path)
     else:
-        os.symlink(link_dst, link_path)
+        symlink(link_dst, link_path)
 
 
 def main(dotfiles):  # pragma: no cover
