@@ -38,7 +38,6 @@ set autoindent
 set history=1000
 set undolevels=1000
 set wildignore=*.swp,*.pyc
-set title
 
 set nobackup
 syntax on
