@@ -25,7 +25,7 @@ alias s="ls"
 alias damn='sudo !!'
 alias sag='sudo apt-get'
 alias apt-get='sudo apt-get'
-alias apt ='sudo apt'
+alias apt='sudo apt'
 
 # Git aliases
 alias gst="git status"
