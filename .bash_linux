@@ -1,5 +1,0 @@
-# nvm (Node version manager)
-export NVM_DIR="~/.nvm"
-if [ -f $NVM_DIR/nvm.sh ]; then
-    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-fi
