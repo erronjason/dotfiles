@@ -8,4 +8,4 @@
 [diff]
     tool = git-meld
 [core]
-	excludesfile = /Users/jason/.gitignore_global
+	excludesfile = ~/.gitignore_global
