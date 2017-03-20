@@ -47,3 +47,11 @@ export PATH=$PATH:$HOME/bin/
 export PATH=$PATH:$HOME/Apps/
 
 [ -f ~/.bash_local ] && . ~/.bash_local
+
+# Useful functions
+
+# Make a directory and cd to it
+# Credit https://github.com/theY4Kman
+function mkcd() {
+    mkdir -p $1 && cd $1
+}
