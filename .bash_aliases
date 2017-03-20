@@ -42,10 +42,3 @@ alias gpom="git push origin master"
 # Dropbox aliases
 alias cdbp="cd ~/Dropbox\ \(Brave\ People\)/"
 alias cddb="cd ~/Dropbox\ \(Personal\)/"
-
-if [ `uname` != 'Darwin' ]; then
-    # Debian-downstream specific aliases
-    if [ "$(grep -Ei 'debian|buntu|mint' --exclude-dir='/etc/upstream-release' /etc/*release)" ]; then
-        alias sag="sudo apt-get"
-    fi
-fi

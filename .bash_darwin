@@ -1,28 +1,9 @@
-export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 
-# virtualenvwrapper
-export WORKON_HOME=$HOME/.virtualenvs
-export PROJECT_HOME=$HOME/projects
-source /usr/local/bin/virtualenvwrapper.sh
-
-# Removes .DS_Store everywhere
-rmds='sudo find / -name ".DS_Store" -depth -exec rm {} \'
-
-# Re-implements updatedb
-alias updatedb="sudo /usr/libexec/locate.updatedb"
-
-# Mac Colors
-export CLICOLOR=1
-export LSCOLORS=GxFxCxDxBxegedabagaced
-LS_OPTIONS='--color=auto'
 
 # Bash completion
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
     . $(brew --prefix)/etc/bash_completion
 fi
-
-# RTV settings
-export RTV_EDITOR=vim
 
 # Allow chrome to be launched from the cli
 chrome () {
@@ -31,6 +12,3 @@ chrome () {
 
 # Alias xlock to lock OSX
 alias xlock="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
-
-# Add iterm2 shell integration
-test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"

@@ -1,2 +1,3 @@
 # Bash prompt
-export PS1="┌──\u@\h[\w]\n└╼ "
+# Add yours here
+# export PS1="┌──\u@\h[\w]\n└╼ "

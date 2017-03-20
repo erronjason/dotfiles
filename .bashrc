@@ -16,14 +16,6 @@ alias tmux="TERM=screen-256color-bce tmux"
 export PYTHONDONTWRITEBYTECODE=1
 [ -f ~/.pythonrc.py ] && export PYTHONSTARTUP=~/.pythonrc.py
 
-# Virtualenvwrapper settings
-if which virtualenvwrapper.sh &> /dev/null; then
-    export WORKON_HOME=$HOME/.virtualenvs
-    export PROJECT_HOME=$HOME/projects
-    [ -d $WORKON_HOME ] && mkdir -p $WORKON_HOME
-    . /usr/local/bin/virtualenvwrapper.sh
-fi
-
 # MASSIVE HISTORY, BECAUSE IT'S THE 2000'S BABY!
 shopt -s histappend
 export HISTFILESIZE=500000
@@ -32,7 +24,7 @@ shopt -s cmdhist
 export HISTTIMEFORMAT="%F %T "
 
 # vim 5ever
-export EDITOR='vim'
+export EDITOR='nano'
 
 # Vim mode bash
 set -o vi
