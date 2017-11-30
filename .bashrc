@@ -44,7 +44,7 @@ bind -m vi-insert “\C-l”:clear-screen
 export PATH=$PATH:$HOME/bin/
 
 # Add ~/Apps to $PATH
-export PATH=$PATH:$HOME/Apps/
+export PATH=$PATH:$HOME/apps/
 
 [ -f ~/.bash_local ] && . ~/.bash_local
 
