@@ -20,6 +20,7 @@ DOTFILES = {
     ".bashrc",
     ".gitconfig",
     ".gitexclude",
+    ".screenrc",
     ".tmux.conf",
     ".vim",
     ".vimrc",
